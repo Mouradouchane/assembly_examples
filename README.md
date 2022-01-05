@@ -1,2 +1,2 @@
 # assembly_examples
-just a simple repo for assembyl examples &amp; snippets
+just a simple repo for assembly examples &amp; snippets 😄
