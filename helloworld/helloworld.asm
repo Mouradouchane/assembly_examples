@@ -1,7 +1,8 @@
 section .data
-	msg: db "hello assembly my name is mourad ;)", 10	 ; string msg = "a message" + '\n';
-	len: equ $- msg 	 	 ; len = msg.length
+	msg: db "hello world assembly", 10	 ; variable msg = string with '\n' <= 10;
+	len: equ $- msg 	 	 ; length of variale msg 
 	
+; main start point like main function in c/c++
 section .text
 	global _start
 
