@@ -1,8 +1,9 @@
 ## assembly_examples
-### - hi there 😄, i put here some examples of assembly code as references 👽
-### - you can use it too or learn from it 
+### - hi there 😄, i put here some **examples of assembly** code as references 👽
+### - you can use it too or learn from it as well as you can 
+### - note : all examples here for **NASM & LINUX**
 
-## example :
+## example for linux :
  ```assembly
 section .data
 	msg: db "hello world assembly", 10	; variable msg string with '\n' <= 10 
@@ -13,8 +14,9 @@ section .text
 	global _start
 
 _start :
-  ; small example of call system for write/print 
+	; small example of call system for write/print 
 	; syscall like any function required paramaeters (eax , ebx , ecx , edx)
+	; you can see all syscall's in linux here : http://faculty.nps.edu/cseagle/assembly/sys_call.html
   
 	mov eax, 4 		; put 4 mean write syscall	
 	mov ebx, 1		; file descriptor 1 - standard output
