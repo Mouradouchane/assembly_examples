@@ -5,8 +5,8 @@
 ## example :
  ```assembly
 section .data
-	msg: db "hello world assembly", 10	 ; variable msg string with '\n' <= 10 
-	len: equ $- msg 	 	                 ; variable len for store length of msg 
+	msg: db "hello world assembly", 10	; variable msg string with '\n' <= 10 
+	len: equ $- msg				; variable len for store length of msg 
 	
 ; main start point like main function in c/c++
 section .text
@@ -18,13 +18,13 @@ _start :
   
 	mov eax, 4 		; put 4 mean write syscall	
 	mov ebx, 1		; file descriptor 1 - standard output
-	mov ecx, msg 	; data you want to write
-	mov edx, len	; data length
+	mov ecx, msg 		; data you want to write
+	mov edx, len		; data length
 
-	int 80h 		  ; call the kernel => "intrprut/execute" 
+	int 80h			; call the kernel => "interpret/execute" 
 
 	mov eax,1 		; syscall for exit
 	mov ebx,0 		; exit with code 0 like C/C++ => "return 0"
 	
-	int 80h			  ; call again the kernel => "intrprut/execute" 
+	int 80h			; call again the kernel => "interpret/execute" 
  ```
