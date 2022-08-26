@@ -84,10 +84,10 @@ mov edx, len	; put len in edx , lenght of that msg
 int 80h		; Interrupt with code 80h in hexadecimal , you can take a look at the syscall's above for more details
 ```
 
-note : now after what we did above you should call sys again for exit , it's soo simple 
+note : now after what we did all we want , we should close/exit our program , to do that it's quite simple .
 ```assembly
 mov eax,1 	; move 1 to eax register , for exit
 mov ebx,0 	; move 0 to ebx register , to exit with code 0 like C/C++ "return 0" in main function
 
-int 80h		; Interrupt again with 80h
+int 80h		; Interrupt again with 80h 
 ```
