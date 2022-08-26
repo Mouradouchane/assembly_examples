@@ -65,7 +65,7 @@ global _start ; scope where execution should start from , it's basically like ma
 _start : ; it's scope with name '_start' can contain "code/instructions"
 ```
 
-note : - now we ready to start writing our "code/instruction" and execute them .
+note : now we ready to start writing our "code/instruction" and execute them .
 
 ```assembly
 ; this is a small example of call system for write/print operation
