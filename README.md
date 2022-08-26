@@ -3,11 +3,14 @@
 ### - you can use it too or learn from it as well as you can 
 ### - note : all examples here right now for **NASM x86 LINUX** later i will add examples for **MASM x86 WINDOWS**
 
-## example for linux :
+## NASM example :
+note : this is a "hello world" example without explanation , the explanation in bottom .
+
  ```assembly
 section .data
-	msg: db "hello world assembly", 10	; variable msg string with '\n' <= 10 
-	len: equ $- msg				; variable len for store length of msg 
+
+	msg: db "hello world assembly", 10
+	len: equ $- msg
 	
 ; main start point like main function in c/c++
 section .text
@@ -30,3 +33,26 @@ _start :
 	
 	int 80h			; call again the kernel => "interpret/execute" 
  ```
+
+## example explanation
+
+```assembly
+section .data ; this is data section where we store "data/variables"
+```
+ 
+```assembly
+msg: db "hello world assembly", 10
+; msg => name of variable
+; db  => 'define byte' to reserve 8bit in memory 
+; 10  => mean '\n' new line 
+	
+; note : in assembly there is no 'data-types' unlike other high level programming language like "Python/C/C++/..."
+; so basically we reserve places in memory using "db,dw,..." and then we put our 'variables/data' on it 
+```
+
+```assembly
+len: equ $- msg
+; len => "varaible/predefined directive" "without defined size db,dw,..." , just for store length of string in variable msg 
+; it's like #define len in C/C++
+; note : '$ -' it's a kind of complex operation to you right now as beginner , don't focus on it and keep in mind we using it to get length of something 
+```
