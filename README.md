@@ -12,21 +12,18 @@ section .data
 	msg: db "hello world assembly", 10
 	len: equ $- msg
 	
-; main start point like main function in c/c++
+
 section .text
 	global _start
 
 _start :
-	; small example of call system for write/print 
-	; syscall like any function required paramaeters (eax , ebx , ecx , edx)
-	; you can see all syscall's in linux here : http://faculty.nps.edu/cseagle/assembly/sys_call.html
-  
-	mov eax, 4 		; put 4 mean write syscall	
-	mov ebx, 1		; file descriptor 1 - standard output
-	mov ecx, msg 		; data you want to write
-	mov edx, len		; data length
 
-	int 80h			; call the kernel => "interpret/execute" 
+	mov eax, 4 		
+	mov ebx, 1		
+	mov ecx, msg 		
+	mov edx, len		
+
+	int 80h			
 
 	mov eax,1 		; syscall for exit
 	mov ebx,0 		; exit with code 0 like C/C++ => "return 0"
@@ -56,3 +53,34 @@ len: equ $- msg
 ; it's like #define len in C/C++
 ; note : '$ -' it's a kind of complex operation to you right now as beginner , don't focus on it and keep in mind we using it to get length of something 
 ```
+
+```assembly
+section .text ; this is text section where we store "code/instructions"
+```
+
+
+```assembly
+global _start ; scope where execution should start from , it's basically like main function in C/C++
+
+_start : ; it's scope with name '_start' can contain "code/instructions"
+```
+
+note : - now we ready to start writing our "code/instruction" and execute them .
+
+```assembly
+; this is a small example of call system for write/print operation
+; syscall like any function required paramaeters (eax , ebx , ecx , edx)
+; you can see all syscall's in linux here : http://faculty.nps.edu/cseagle/assembly/sys_call.html
+
+; what we trying to achive here it's someting like this :
+; syscall( 4 , 1 , msg , len );
+; in high level programming languages 
+
+mov eax, 4 	; put 4 in register eax , 4 mean "request for write" to syscall	
+mov ebx, 1	; put 1 in register ebx , 1 for file descriptor 'standard output'
+mov ecx, msg 	; put msg in register ecx , data/string you want to write/print
+mov edx, len	; put len in edx , lenght of that msg  
+
+int 80h		; Interrupt with code 80h in hexadecimal , you can take a look for 
+```
+
