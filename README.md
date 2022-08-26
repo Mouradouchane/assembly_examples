@@ -3,7 +3,7 @@
 ### - you can use it too or learn from it as well as you can 
 ### - note : all examples here right now for **NASM x86 LINUX** later i will add examples for **MASM x86 WINDOWS**
 
-## NASM example :
+## NASM x86 Example :
 note : this is a "hello world" example without explanation , the explanation in bottom .
 
  ```assembly
@@ -31,7 +31,7 @@ _start :
 	int 80h			; call again the kernel => "interpret/execute" 
  ```
 
-## example explanation
+## Example Explanation
 
 ```assembly
 section .data ; this is data section where we store "data/variables"
@@ -81,6 +81,13 @@ mov ebx, 1	; put 1 in register ebx , 1 for file descriptor 'standard output'
 mov ecx, msg 	; put msg in register ecx , data/string you want to write/print
 mov edx, len	; put len in edx , lenght of that msg  
 
-int 80h		; Interrupt with code 80h in hexadecimal , you can take a look for 
+int 80h		; Interrupt with code 80h in hexadecimal , you can take a look at the syscall's above for more details
 ```
 
+note : now after what we did above you should call sys again for exit , it's soo simple 
+```assembly
+mov eax,1 	; move 1 to eax register , for exit
+mov ebx,0 	; move 0 to ebx register , to exit with code 0 like C/C++ "return 0" in main function
+
+int 80h		; Interrupt again with 80h
+```
