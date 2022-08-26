@@ -25,10 +25,10 @@ _start :
 
 	int 80h			
 
-	mov eax,1 		; syscall for exit
-	mov ebx,0 		; exit with code 0 like C/C++ => "return 0"
+	mov eax,1 	
+	mov ebx,0 	
 	
-	int 80h			; call again the kernel => "interpret/execute" 
+	int 80h	
  ```
 
 ## Example Explanation
