@@ -3,8 +3,13 @@
 ### - you can use it too or learn from it as well as you can 
 ### - note : all examples here right now for **NASM x86 LINUX** later i will add examples for **MASM x86 WINDOWS**
 
-## NASM x86 Example :
-note : this is a "hello world" example without explanation , the explanation in bottom .
+<details open> 
+
+<summary> 
+<h2> NASM x86 Example </h2>
+</summary> 
+
+note : this is a "hello world" example without explanation => the explanation in bottom of this example .
 
  ```assembly
 section .data
@@ -30,8 +35,13 @@ _start :
 	
 	int 80h	
  ```
+</details> 
 
-## Example Explanation
+<details open> 
+
+<summary> 
+<h2> NASM x86 Example Explanation </h2>
+</summary>
 
 ```assembly
 section .data ; this is data section where we store "data/variables"
@@ -91,3 +101,40 @@ mov ebx,0 	; move 0 to ebx register , to exit with code 0 like C/C++ "return 0" 
 
 int 80h		; Interrupt again with 80h 
 ```
+
+</details>
+
+<details close>
+
+<summary> 
+<h2> MASM x86 Example </h2>
+</summary>
+
+note : this is a "hello world" example without explanation => the explanation in bottom of this example .
+
+```assembly
+.386
+.model flat, stdcall
+
+option casemap :none
+
+include \masm32\include\windows.inc
+include \masm32\include\kernel32.inc
+include \masm32\include\masm32.inc
+
+includelib \masm32\lib\kernel32.lib
+includelib \masm32\lib\masm32.lib
+
+.data
+    HelloWorld db "Hello World!", 0
+
+.code
+    start:
+
+    invoke StdOut, addr HelloWorld
+    invoke ExitProcess, 0
+
+    end start
+```
+
+</details>
