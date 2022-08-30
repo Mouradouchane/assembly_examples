@@ -3,10 +3,19 @@
 ### - you can use it too or learn from it as well as you can 
 ### - note : all examples here right now for **NASM x86 LINUX** later i will add examples for **MASM x86 WINDOWS**
 
-<details open> 
+
+<details close>
 
 <summary> 
-<h2> NASM x86 Example </h2>
+<h2> Linux </h2>
+<hr> 
+</summary>
+
+
+<details close> 
+
+<summary> 
+<h3> NASM x86 Example </h3>
 </summary> 
 
 note : this is a "hello world" example without explanation => the explanation in bottom of this example .
@@ -37,10 +46,10 @@ _start :
  ```
 </details> 
 
-<details open> 
+<details close> 
 
 <summary> 
-<h2> NASM x86 Example Explanation </h2>
+<h3> NASM x86 Example Explanation </h3>
 </summary>
 
 ```assembly
@@ -104,10 +113,21 @@ int 80h		; Interrupt again with 80h
 
 </details>
 
+</details>
+
+
 <details close>
 
 <summary> 
-<h2> MASM x86 Example </h2>
+<h2> Windows </h2>
+<hr> 
+</summary>
+
+
+<details close>
+
+<summary> 
+<h3> MASM x86 Example </h3>
 </summary>
 
 note : this is a "hello world" example without explanation => the explanation in bottom of this example .
@@ -140,7 +160,10 @@ includelib \masm32\lib\masm32.lib
 </details>
 
 <details close>
-<summary> <h2> MASM x86 Example Explanation <h2> </summary>
+
+<summary> 
+<h3> MASM x86 Example Explanation <h3> 
+</summary>
 
 ```assembly
 .386 ; use/include instructions for .386 , you can use .486/.586/... , but .386 will be the most compatible instruction set
@@ -211,5 +234,7 @@ invoke ExitProcess, 0 ; that's easy right ==> ExitProcess( 0 );
 ```assembly
 end start ; end of start scope 
 ```
+
+</details>
 
 </details>
