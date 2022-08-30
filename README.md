@@ -138,3 +138,78 @@ includelib \masm32\lib\masm32.lib
 ```
 
 </details>
+
+<details close>
+<summary> <h2> MASM x86 Example Explanation <h2> </summary>
+
+```assembly
+.386 ; use/include instructions for .386 , you can use .486/.586/... , but .386 will be the most compatible instruction set
+```
+
+```assembly
+.model flat, stdcall
+; flat    : it's a memory model/directive for windows programs
+; stdcall : parameter for flat
+```
+
+```assembly
+option casemap :none
+; to active case sensitive to be like modern languages , var not same as VAR or Var
+```
+
+```assembly
+include \masm32\include\windows.inc
+include \masm32\include\kernel32.inc
+include \masm32\include\masm32.inc
+; include like C/C++ to include/import external code to your file to using it
+```
+
+```assembly
+includelib \masm32\lib\kernel32.lib
+includelib \masm32\lib\masm32.lib
+;include some libraries for some functions who need it to work with 
+```
+
+```assembly
+.data ; data/variables section where we gonna define our data
+```
+
+; note : in assembly there is no 'data-types' unlike other high level programming language like "Python/C/C++/..."
+; so basically we reserve places in memory using "db,dw,..." and then we put our 'variables/data' on it 
+
+```assembly
+HelloWorld db "Hello World!", 0
+
+; HelloWorld => name of variable
+; db  => 'define byte' to reserve 8bit in memory 
+; 0   => null determination for end of ANSI string
+```
+
+```assembly
+.code ; this section where we put all our code/instructions 
+```
+
+```assembly
+start: ; the point where your program should start , it's like main function in C/C++
+```
+
+```assembly
+invoke StdOut, addr HelloWorld ; it's basically ==> StdOut( &HelloWorld );
+
+; invoke : to call/run a function
+; StdOut : it's a function 
+; addr   : to get the address of variable/data
+; Helloworld : pass our string address in memory to the StdOut function
+```
+
+```assembly
+invoke ExitProcess, 0 ; that's easy right ==> ExitProcess( 0 );
+
+; ExitProcess : function to exit/end program 
+```
+
+```assembly
+end start ; end of start scope 
+```
+
+</details>
