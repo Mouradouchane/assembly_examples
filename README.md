@@ -1,7 +1,5 @@
 ## assembly_examples
-### - hi there 😄, i put here some **examples of assembly** code as references 👽
-### - you can use it too or learn from it as well as you can 
-### - note : all examples here right now for **NASM x86 LINUX** later i will add examples for **MASM x86 WINDOWS**
+### - hi there 😄, i put here some **examples of assembly** code as references with details 👽 , you can use all of them as references for learning .
 
 
 <details close>
