@@ -11,16 +11,16 @@ section .data
 section .text
 	global _start
 
-	; main start point
+	; entry point like main in C/C++
 _start :
-   	mov	eax,4		  ;system call number (sys_write)
-  	mov	ebx,1		  ;file descriptor (stdout)
-   	mov	ecx,mchar     ;message to write
-	mov	edx,len		  ;message length
+   	mov	eax,4			; 4 -> sys_write
+  	mov	ebx,1			; file descriptor (stdout)
+   	mov	ecx,mchar		; message to print
+	mov	edx,len			; message length
 
-	int 80h 
+	int 80h				; execute the above
 
-	mov eax , 1 	; return 0
-	int 80h
+	mov eax , 1			; 1 -> sys_exit
+	int 80h				; execute the above
 
 
