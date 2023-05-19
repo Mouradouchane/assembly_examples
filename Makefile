@@ -1,4 +1,7 @@
 
+winfolder="WIN-MASM"
+lnxfolder="LNX-NASM"
+
 default :
 	@ echo "make file need arguments"
 
@@ -7,16 +10,16 @@ build :
 ifeq ($(sys),windows)
 	@ echo "build for ${sys} in progress"
 
-	# compile
-	ml /c /Zd /coff "MASM/${example}/${example}.asm"
+	@ echo compile :
+	ml /c /Zd /coff ${winfolder}/${example}/${example}.asm
 
-	# link
-	link "MASM/${example}/${example}.obj" /subsystem:console
+	@ echo link :
+	link /subsystem:console ${winfolder}/${example}/${example}.obj 
 
 	@ echo "build for ${sys} succeeded"
 
-	# run
-	./MASM/${example}/${example}.exe
+	@ echo run :
+	./${winfolder}/${example}/${example}.exe
 
 endif
 
@@ -24,16 +27,16 @@ ifeq ($(sys),linux)
 
 	@ echo "build for ${sys} in progress" 
 
-	# compile
-	nasm -f elf NASM/${example}/${example}.asm 
+	@ echo compile :
+	nasm -f elf "${lnxfolder}/${example}/${example}.asm" 
 
-	# link
-	ld -s NASM/${example}/${example}.o -o NASM/${example}/${example} 
+	@ echo link :
+	ld -s "${lnxfolder}/${example}/${example}.o" -o "${lnxfolder}/${example}/${example}" 
 
 	@ echo "build for ${sys} succeeded" 
 
-	# run
-	./NASM/${example}/${example} 
+	@ echo :
+	./${lnxfolder}/${example}/${example} 
 
 
 endif
@@ -42,12 +45,12 @@ endif
 clean :
 	@ echo "cleaning ${example}"
 ifeq (${sys},windows) 
-	@ rm -rf MASM/${example}/${example}.exe
-	@ rm -rf MASM/${example}/${example}.obj
+	@ rm -rf ${winfolder}/${example}/${example}.exe
+	@ rm -rf ${winfolder}/${example}/${example}.obj
 endif
 ifeq (${sys},linux) 
-	@ rm -rf NASM/${example}/${example}.exe
-	@ rm -rf NASM/${example}/${example}.obj
+	@ rm -rf ${lnxfolder}/${example}/${example}.exe
+	@ rm -rf ${lnxfolder}/${example}/${example}.obj
 endif
 	@ echo "cleaning done"
 
