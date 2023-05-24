@@ -34,10 +34,12 @@
 </p>
 <p> 
     - example :
-    <code>
-        make build sys=windows example=helloworld
-    </code>
 </p>
+   
+```bash
+    make build sys=windows example=helloworld
+```
+    
 <p>
     - then if the build process is successed , you gonna find 
     the binary file in that example folder 
@@ -49,8 +51,9 @@
     this is a simple helloworld example for MASM with 
     using StdOut StdIn .
 </p>
-<code lang="assembly">
-        
+
+```assembly
+
     .386
     .model flat, stdcall
 
@@ -86,5 +89,4 @@
             invoke ExitProcess, 0
             
         end start
-
-</code>
+``` 
